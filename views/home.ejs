@@ -1,0 +1,33 @@
+
+<%- include("partials/header"); -%>
+
+<div class="intro">
+
+      <h1>DAILY JOURNAL</h1>
+      <p> <%= startingContent %> </p>
+</div>
+
+
+  <%  posts.forEach(function(post){ %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+      <h1><a href="/posts/<%=post.id%>" style="text-decoration: none; color: #333333; "> <%=post.title%>  </a></h1></div>
+      <div class="panel-body">
+        <p>
+          <% if ( post.content.length> 540 ){ %>
+          <%=post.content.substring(0, 536) + " ..."%>
+        <a href="/posts/<%=post.id%>">Read More</a>
+        <% }else{ %>
+          <%=post.content%>
+          <%}%>
+        </p>
+      </div>
+    </div>
+
+
+
+
+    <% }) %>
+
+
+<%- include("partials/footer"); -%>
