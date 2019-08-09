@@ -9,22 +9,24 @@
 
 
   <%  posts.forEach(function(post){ %>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-      <h1><a href="/posts/<%=post.id%>" style="text-decoration: none; color: #333333; "> <%=post.title%>  </a></h1></div>
-      <div class="panel-body">
-        <p>
-          <% if ( post.content.length> 540 ){ %>
-          <%=post.content.substring(0, 536) + " ..."%>
-        <a href="/posts/<%=post.id%>">Read More</a>
-        <% }else{ %>
-          <%=post.content%>
-          <%}%>
-        </p>
+
+    <div class="card" style="margin-top:10px; ">
+      <div class="card-header">
+        <h1><a href="/posts/<%=post.id%>" style="text-decoration: none; color: #333333; "> <%=post.title%>  </a></h1>
+      </div>
+      <div class="card-body" >
+        <blockquote class="blockquote mb-0">
+          <p>
+            <% if ( post.content.length> 540 ){ %>
+            <%=post.content.substring(0, 536) + " ..."%>
+          <a href="/posts/<%=post.id%>">Read More</a>
+          <% }else{ %>
+            <%=post.content%>
+            <%}%>
+          </p>
+        </blockquote>
       </div>
     </div>
-
-
 
 
     <% }) %>
