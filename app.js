@@ -6,7 +6,7 @@ const ejs = require("ejs");
 const _ = require("lodash");
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost:27017/blogDB", {
+mongoose.connect("mongodb+srv://dbUser:dbGOODUSER@cluster0-mawjc.mongodb.net/blogDB", {
   useNewUrlParser: true
 });
 
@@ -104,6 +104,6 @@ app.get("/posts/:postId", function(req, res) {
 
 });
 
-app.listen(3000, function() {
+app.listen(process.env.PORT || 3000, function() {
   console.log("Server started on port 3000");
 });
